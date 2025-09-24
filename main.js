@@ -5,9 +5,10 @@ import { renderTasks, createTaskElement, appendTask } from "./taskRender.js";
 import { modalListenerOpen, modalListenerClose, modalTaskListener } from "./modalManager.js";
 import { 
     modalOpen, modalClose, addTaskBtn, addTaskModal, mobileTaskBtn, closeTaskModal,
-    createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn
+    createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn,
+    toggleSidebar, navBar, openSidebar
 } from "./dom.js";
- import { updateDarkModeUI } from "./UI/darkMode.js";
+ import {  updateDarkModeUI } from "./UI/darkMode.js";
 
 let tasks = loadTasks();
 
@@ -55,8 +56,21 @@ modalListenerOpen(mobileTaskBtn, addTaskModal)
 
 toggleThemeBtn.addEventListener("click", () => {
   toggleDarkMode()
-  updateDarkModeUI();
 })
 
+const closeSideBar = () =>{
+  navBar.classList.add("hide");
+    document.body.style.padding = "0"
+}
 
+const openSideBar = () =>{
+  navBar.classList.remove("hide");
+}
 
+toggleSidebar.addEventListener("click", () =>{
+  closeSideBar()
+})
+
+openSidebar.addEventListener("click", () =>{
+  openSideBar();
+})

@@ -1,5 +1,5 @@
-import { updateDarkModeUI} from "./UI/darkMode.js";
 import { darkMode, darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon } from "./dom.js";
+import { updateDarkModeUI } from "./UI/darkMode.js";
 
 //Loads tasks from the localStorage
 export function loadTasks(){
@@ -18,7 +18,7 @@ if(darkMode.classList.contains("dark")){
 } else{
   localStorage.removeItem("darkMode")
 };
-
+    updateDarkModeUI();
  }
 
 const applySavedTheme = () => {

@@ -1,4 +1,4 @@
-import { darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon } from "../dom.js";
+import { darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon } from "../dom.js"
 
 darkModeAppName.style.display = "none";
 darkModeIcon.style.display = "none";

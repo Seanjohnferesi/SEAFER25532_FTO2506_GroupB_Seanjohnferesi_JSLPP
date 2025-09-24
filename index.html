@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
-     <nav>
+     <nav id="nav">
         <div class="logo-wrapper">
             <!-- FOR LIGHT MODE -->
             <img src="images/favicon.svg" alt="Kanban logo" class="app-icon">
@@ -33,6 +33,9 @@
         <button class="mobile-add-task-btn" id="mobile-add-task-btn"><span>+</span></button>
         <button class="toggle-theme-btn" id="toggle-theme-btn">
             <img src="images/Sun.png"> <div class="theme-switch"><span class="switch-btn"></span></div> <img src="images/moon.png">
+        </button>
+        <button class="toggle-sidebar">
+            <img src="images/hide.png" alt="hide button"> Hide Sidebar
         </button>
     </nav>
 
@@ -133,8 +136,8 @@
                 </form>
             </div>
         </section>
+        <button class="open-sidebar"><img src="images/open-sidebar.png" alt="icon of a pair of eyes"></button>
     </main>
-    
     <script type="module" src="main.js"></script>
 </body>
 </html>

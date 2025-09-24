@@ -1,6 +1,5 @@
 import { todoColumn, doingColumn, doneColumn } from "./dom.js";
 import { modalTaskListener } from "./modalManager.js";
-
 /**Creating the task elements**/
 export function createTaskElement(task){
     let displayTask = document.createElement("div"); //creates a new div element in memory

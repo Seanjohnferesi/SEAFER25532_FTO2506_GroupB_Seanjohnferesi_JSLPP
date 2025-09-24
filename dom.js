@@ -30,3 +30,8 @@ export const lightModeAppName = document.querySelector(".app-name");
 //DARK MODE NAME AND ICON
 export const darkModeIcon = document.querySelector(".dark-app-icon")
 export const darkModeAppName = document.querySelector(".dark-app-name")
+
+/*TOGGLE SIDE*/
+export const toggleSidebar = document.querySelector(".toggle-sidebar");
+export const navBar = document.getElementById("nav");
+export const openSidebar = document.querySelector(".open-sidebar");
