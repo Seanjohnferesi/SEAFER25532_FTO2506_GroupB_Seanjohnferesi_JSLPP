@@ -1,12 +1,13 @@
 
 import {initialTasks } from "./initialData.js";
-import { loadTasks, storeTasks} from "./localStorage.js";
+import { loadTasks, storeTasks, toggleDarkMode} from "./localStorage.js";
 import { renderTasks, createTaskElement, appendTask } from "./taskRender.js";
 import { modalListenerOpen, modalListenerClose, modalTaskListener } from "./modalManager.js";
 import { 
     modalOpen, modalClose, addTaskBtn, addTaskModal, mobileTaskBtn, closeTaskModal,
-    createTask, titleInput2, descriptionInput2, statusInput2 
+    createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn
 } from "./dom.js";
+ import { updateDarkModeUI } from "./UI/darkMode.js";
 
 let tasks = loadTasks();
 
@@ -52,23 +53,10 @@ modalListenerClose(closeTaskModal, addTaskModal)
 //click listener so the ADD TASK modal open for mobile.
 modalListenerOpen(mobileTaskBtn, addTaskModal)
 
+toggleThemeBtn.addEventListener("click", () => {
+  toggleDarkMode()
+  updateDarkModeUI();
+})
 
 
 
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////
-/**RENDERS HARDCODED ARRAY**/
-// /**Main task rendering loop**/
-// for(const task of initialTasks){ //Loop through all tasks.
-//   const divTask = createTaskElement(task);
-//   appendTask(divTask, task.status)
-
-// //click listener so the modal opens with the task's details when clicked.
-//   divTask.addEventListener("click", () => {
-//   modalOpen.classList.add("display-modal");
-//   titleInput.value = task.title;
-//   descriptionInput.value = task.description;
-//   statusInput.value = task.status;
-// })
-// }

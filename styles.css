@@ -1,10 +1,65 @@
+:root{
+    --body-bg-color: #F4F7FD;
+    --clm-title-color: #828FA3; 
+    --button-color: #635FC7;
+    --border-color: #E4EBFA;
+    --btn-text-color: white;
+    --clm-color: var(--btn-text-color);
+    --clm-text-color: #000112;
+    --theme-switch-btn: var(--button-color);
+    --toggle-btn: var(--body-bg-color)
+}
 
 body{
     margin: 0;
     padding-left: 302px;
-    background-color: #F4F7FD;
+    background-color: var(--body-bg-color);
     font-family: "Plus Jakarta Sans", sans-serif;
     font-size: 1rem;
+}
+
+/* DARK MODE THEME */
+body.dark{
+    --body-bg-color: #20212C;
+    --clm-color: #2B2C37;
+    --clm-text-color: var(--btn-text-color);
+    --theme-switch-btn: #20212C;
+    --toggle-btn: var(--button-color);
+}
+
+.toggle-theme-btn{
+    width: 251px;
+    height: 48px;
+    border-radius: 6px;
+    background-color: var(--toggle-btn);
+    border: none;
+    position: absolute;
+    bottom: 13%;
+    left: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-switch{
+    width: 40px;
+    height: 20px;
+    border-radius: 12px;
+    background-color: var(--theme-switch-btn); 
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+
+.switch-btn{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--btn-text-color);
+    display: inline-block;
 }
 
 @layer SIDEBAR{
@@ -15,8 +70,8 @@ body{
         position: fixed;
         top: 0;
         left: 0;
-        background-color: white;
-        border-right: 1px solid #e4ebfa
+        background-color: var(--clm-color);
+        border-right: 1px solid #e4ebfa;
     }
 
     .logo-wrapper{
@@ -29,14 +84,25 @@ body{
         margin-left: 10px;
     }
 
-    .app-logo{
+    .dark-app-name{
+        width: 113px;
+        height: 25px;
+        margin-left: 10px;
+    }
+
+    .app-icon{
+        width: 25px;
+        height: 24px;
+    }
+
+    .dark-app-icon{
         width: 25px;
         height: 24px;
     }
 
     .boards-container > h4{
         padding: 0 12px 0 50px;
-        color: #828FA3;
+        color: var(--clm-title-color);
         letter-spacing: 2.4px;
         font-size: 12px;
     }
@@ -49,7 +115,7 @@ body{
         border: none;
         border-top-right-radius: 100px;
         border-bottom-right-radius: 100px;
-        background-color: #635FC7;
+        background-color: var(--button-color);
         color: white;
         font-family: inherit;
         font-size: 0.9375rem;
@@ -64,7 +130,7 @@ body{
     header{
         box-sizing: border-box;
         height: 96px;
-        background-color: white;
+        background-color: var(--clm-color);
         padding: 0 30px;
         display: flex;
         align-items: center;
@@ -75,7 +141,7 @@ body{
     .add-task-btn{
         width: 164px;
         height: 48px;
-        background-color: #635FC7;
+        background-color: var(--button-color);
         border: none;
         border-radius: 24px;
         font-weight: bold;
@@ -106,7 +172,7 @@ body{
         font-family: inherit;
         font-size:  1.5rem;
         font-weight: 600;
-        color: #000112;
+        color: var(--clm-text-color);
         margin: 0;
     }
 }
@@ -155,14 +221,14 @@ body{
             display: flex;
             align-items: center;
             padding-left: 15px;
-            background-color: white;
+            background-color: var(--clm-color);
             border-radius: 12px;
             box-shadow: 0 4px 6px 0 #364E7E1A;
-            /*styling for the text inside the div*/   
+            /* styling for the text inside the div    */
             font-size: 0.9375rem;
             font-family: inherit;
             font-weight: bold;
-            color: #000112;
+            color: var(--clm-text-color);
             cursor: pointer;
             transition: width 0.3s;
         }
@@ -218,14 +284,14 @@ body{
             display: flex;
             align-items: center;
             padding-left: 15px;
-            background-color: white;
+            background-color: var(--clm-color);
             border-radius: 8px;
             box-shadow: 0 4px 6px 0 #364E7E1A;
             /*styling for the text inside the div*/   
             font-size: 15px;
             font-weight: 700;
             letter-spacing: 1px;
-            color: #000112;
+            color: var(--clm-text-color);
             cursor: pointer;
             transition: width 0.3s;
         }
@@ -281,14 +347,14 @@ body{
             display: flex;
             align-items: center;
             padding-left: 15px;
-            background-color: white;
+            background-color: var(--clm-color);
             border-radius: 8px;
             box-shadow: 0 4px 6px 0 #364E7E1A;
             /*styling for the text inside the div*/   
             font-size: 15px;
             font-weight: 700;
             letter-spacing: 1px;
-            color: #000112;
+            color: var(--clm-text-color);
             cursor: pointer;
             transition: width 0.3s;
         }
@@ -335,7 +401,7 @@ body{
             width: 600px;
             height: 415px;
             border-radius: 6px;
-            background-color: white;
+            background-color: var(--clm-color);
             padding: 25px;
         }
 
@@ -373,11 +439,11 @@ body{
             font-size: 18px;
             font-weight: bold;
             letter-spacing: 0px;
-            color: #000112;
+            color: var(--clm-text-color);
         }
 
         .close-btn{
-            background-color: white;
+            background-color: var(--clm-color);
             border: none;
             cursor: pointer;
         }

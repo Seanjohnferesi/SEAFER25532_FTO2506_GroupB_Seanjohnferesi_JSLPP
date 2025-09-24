@@ -18,14 +18,22 @@
 <body>
      <nav>
         <div class="logo-wrapper">
-            <img src="images/favicon.svg" alt="Kanban logo" class="app-logo">
+            <!-- FOR LIGHT MODE -->
+            <img src="images/favicon.svg" alt="Kanban logo" class="app-icon">
             <img src="images/kanban.svg" alt="Kanban app name" class="app-name">
+
+            <!-- FOR DARK MODE -->
+            <img src="images/dark-icon.svg" class="dark-app-icon">
+            <img src="images/dark-kanban.svg" alt="Kanban app name" class="dark-app-name">
         </div>
         <div class="boards-container">
             <h4>ALL BOARDS (1)</h4>
             <button>Launch Career</button>
         </div>
         <button class="mobile-add-task-btn" id="mobile-add-task-btn"><span>+</span></button>
+        <button class="toggle-theme-btn" id="toggle-theme-btn">
+            <img src="images/Sun.png"> <div class="theme-switch"><span class="switch-btn"></span></div> <img src="images/moon.png">
+        </button>
     </nav>
 
     <header>

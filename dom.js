@@ -20,3 +20,13 @@ export const addTaskBtn = document.getElementById("add-task-btn")
 export const mobileTaskBtn = document.getElementById("mobile-add-task-btn")
 export const addTaskModal = document.getElementById("modal-cnt-2")
 export const closeTaskModal = document.getElementById("close-btn-2")
+
+/**DARK MODE THEME**/
+export const toggleThemeBtn = document.getElementById("toggle-theme-btn");
+export const darkMode = document.body;
+// LIGHT MODE NAME AND ICON
+export const lightModeIcon = document.querySelector(".app-icon")
+export const lightModeAppName = document.querySelector(".app-name");
+//DARK MODE NAME AND ICON
+export const darkModeIcon = document.querySelector(".dark-app-icon")
+export const darkModeAppName = document.querySelector(".dark-app-name")
