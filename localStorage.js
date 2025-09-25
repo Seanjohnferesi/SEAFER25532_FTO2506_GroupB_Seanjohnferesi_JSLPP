@@ -48,5 +48,5 @@ const applySavedTheme = () => {
         mobileLightLogo.style.display = "inline";
     }
 }
-
 applySavedTheme()
+

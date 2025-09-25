@@ -19,6 +19,9 @@ export function appendTask(displayTask, status){
 }
 
 export function renderTasks(tasks) {
+    todoColumn.innerHTML= "";
+    doingColumn.innerHTML = "";
+    doneColumn.innerHTML = ""
     for (const task of tasks){
       const divTask = createTaskElement(task);
       appendTask(divTask, task.status)

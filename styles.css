@@ -72,7 +72,7 @@ body.dark{
 
     nav{
         width: 300px;
-        height: 1024px;
+        height: 100%;
         position: fixed;
         top: 0;
         left: 0;
@@ -481,8 +481,8 @@ body.dark{
         }
 
         .modal{
-            width: 600px;
-            height: 415px;
+            width: 479px;
+            height: 479px;
             border-radius: 6px;
             background-color: var(--clm-color);
             padding: 25px;
@@ -507,7 +507,6 @@ body.dark{
             color: #000112;
             opacity: 25%;
             font-family: "Plus Jakarta Sans", sans-serif;
-            width: 71px;
         }
 
         .modal-header-container{
@@ -537,7 +536,7 @@ body.dark{
 
         /*TITLE INPUT*/
         .input-title{
-            width: 551px;
+            width: 424px;
             height: 41px; 
             border: 1px solid #828FA340;
             border-radius: 4px;
@@ -548,7 +547,7 @@ body.dark{
 
         /*DESCRIPTION INPUT*/
         .input-description{
-            width: 551px;
+            width: 424px;
             height: 114px;
             border: 1px solid #828FA340;
             border-radius: 4px;
@@ -563,7 +562,7 @@ body.dark{
 
         /*STATUS INPUT*/
         .input-status{
-            width: 551px;
+            width: 424px;
             height: 41px; 
             border: 1px solid #828FA340;
             border-radius: 4px;
@@ -617,6 +616,34 @@ body.dark{
             margin-top: 10px;
         }
         
+        /* SAVE AND DELETE BUTTON */
+        .btns-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+        #save-btn, #delete-btn{
+            width: 200px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            font-size: 13px;
+            letter-spacing: 0px;
+            font-weight: 700;
+            font-family: inherit;
+            color: white;
+            cursor: pointer;
+        }
+
+        #save-btn{
+            background-color: #635FC7;
+            
+        }
+
+        #delete-btn{
+            background-color: #EA5555;
+        }
     }
 }
 
@@ -628,7 +655,7 @@ body.dark{
         padding-top: 64px;
     }
 
-    nav{
+    nav, .open-sidebar{
         display: none;
     }
 
@@ -784,9 +811,8 @@ body.dark{
     /*Mobile modal view*/
     .modal{
         width: 343px;
-        height: 410px;
+        height: 538px;
         position: absolute;
-        left: 14px;
     }
 
     .input-title{
@@ -814,5 +840,15 @@ body.dark{
 
     .create-task-btn{
         width: 295px ;
+    }
+
+    .btns-container{
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #save-btn, #delete-btn{
+        width: 300px;
+        height: 40px;
     }
 }

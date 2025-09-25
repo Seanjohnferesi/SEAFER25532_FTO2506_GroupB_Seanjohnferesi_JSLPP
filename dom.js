@@ -37,3 +37,7 @@ export const mobileDarkLogo = document.querySelector(".mobile-dark-logo");
 export const toggleSidebar = document.querySelector(".toggle-sidebar");
 export const navBar = document.getElementById("nav");
 export const openSidebar = document.querySelector(".open-sidebar");
+
+/**SAVE AND DELETE BUTTONS**/
+export const saveBtn = document.getElementById("save-btn")
+export const dltBtn = document.getElementById("delete-btn")
