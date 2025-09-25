@@ -27,9 +27,11 @@ export const darkMode = document.body;
 // LIGHT MODE NAME AND ICON
 export const lightModeIcon = document.querySelector(".app-icon")
 export const lightModeAppName = document.querySelector(".app-name");
+export const mobileLightLogo = document.querySelector(".mobile-light-logo");
 //DARK MODE NAME AND ICON
 export const darkModeIcon = document.querySelector(".dark-app-icon")
 export const darkModeAppName = document.querySelector(".dark-app-name")
+export const mobileDarkLogo = document.querySelector(".mobile-dark-logo");
 
 /*TOGGLE SIDE*/
 export const toggleSidebar = document.querySelector(".toggle-sidebar");

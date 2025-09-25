@@ -4,7 +4,7 @@ import { loadTasks, storeTasks, toggleDarkMode} from "./localStorage.js";
 import { renderTasks, createTaskElement, appendTask } from "./taskRender.js";
 import { modalListenerOpen, modalListenerClose, modalTaskListener } from "./modalManager.js";
 import { 
-    modalOpen, modalClose, addTaskBtn, addTaskModal, mobileTaskBtn, closeTaskModal,
+    modalOpen, modalClose, addTaskBtn, addTaskModal, closeTaskModal,
     createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn,
     toggleSidebar, navBar, openSidebar
 } from "./dom.js";
@@ -52,7 +52,7 @@ modalListenerOpen(addTaskBtn, addTaskModal)
 modalListenerClose(closeTaskModal, addTaskModal)
 
 //click listener so the ADD TASK modal open for mobile.
-modalListenerOpen(mobileTaskBtn, addTaskModal)
+modalListenerOpen(addTaskBtn, addTaskModal)
 
 toggleThemeBtn.addEventListener("click", () => {
   toggleDarkMode()
@@ -65,6 +65,7 @@ const closeSideBar = () =>{
 
 const openSideBar = () =>{
   navBar.classList.remove("hide");
+  document.body.style.paddingLeft = "302px"
 }
 
 toggleSidebar.addEventListener("click", () =>{

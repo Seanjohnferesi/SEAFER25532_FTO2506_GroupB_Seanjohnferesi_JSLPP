@@ -218,7 +218,14 @@ body.dark{
         align-items: center;
     }
 
-    .mobile-favicon-icon{
+    .mobile-light-logo{
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        display: inline;
+    }
+
+    .mobile-dark-logo{
         width: 30px;
         height: 30px;
         margin-right: 10px;
@@ -647,9 +654,22 @@ body.dark{
 
     }
 
-    .mobile-favicon-icon{
+    .mobile-light-logo {
         display: inline;
     }
+
+    .mobile-dark-logo {
+        display: none;
+    }
+
+    body.dark .mobile-light-logo {
+        display: none;
+    }
+
+    body.dark .mobile-dark-logo {
+        display: inline;
+    }
+
 
     /***MAIN***/
     main{ 

@@ -1,4 +1,4 @@
-import { darkMode, darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon } from "./dom.js";
+import { darkMode, darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon, mobileDarkLogo, mobileLightLogo} from "./dom.js";
 import { updateDarkModeUI } from "./UI/darkMode.js";
 
 //Loads tasks from the localStorage
@@ -30,16 +30,22 @@ const applySavedTheme = () => {
         // SHOWS DARK MODE NAME AND ICON
         darkModeAppName.style.display = "inline";
         darkModeIcon.style.display = "inline";
+        mobileDarkLogo.style.display = "inline";
+        
         //HIDES LIGHT MODE NAME AND ICON
         lightModeAppName.style.display = "none";
         lightModeIcon.style.display = "none";
+        mobileLightLogo.style.display = "none";
+        
     } else {
         darkMode.classList.remove("dark")
 
         darkModeAppName.style.display = "none";
         darkModeIcon.style.display = "none";
+        mobileDarkLogo.style.display = "none"
         lightModeAppName.style.display = "inline";
         lightModeIcon.style.display = "inline";
+        mobileLightLogo.style.display = "inline";
     }
 }
 
