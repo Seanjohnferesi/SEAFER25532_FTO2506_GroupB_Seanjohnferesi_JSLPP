@@ -2,7 +2,7 @@
 import {initialTasks } from "./initialData.js";
 import { loadTasks, storeTasks, toggleDarkMode} from "./localStorage.js";
 import { renderTasks, createTaskElement, appendTask } from "./taskRender.js";
-import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrentTask} from "./modalManager.js";
+import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrentTask, delCurrentTask} from "./modalManager.js";
 import { 
     modalOpen, modalClose, addTaskBtn, addTaskModal, closeTaskModal,
     createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn,
@@ -44,10 +44,7 @@ createTask.addEventListener("click", () => {
 
 updateCurrentTask(tasks);
 
-
-dltBtn.addEventListener("click", () =>{
-    console.log("clicked")
-})
+delCurrentTask(tasks);
 
 //click listener so the Task modal closes.
 modalListenerClose(modalClose, modalOpen)

@@ -47,9 +47,14 @@ export function modalTaskListener(divTask, task){
     });
 }
 
+/**
+ * Updates the currently selected tasks with values from the modal inputs,
+ * saves the updated info to localStorage and re-renders the tasks and closes the modal.
+ * 
+ * @param {Array<Object>} tasks - the array of all tasks currenlt stored in localStorage
+ */
 export const updateCurrentTask = (tasks) => {
     saveBtn.addEventListener("click", () =>{
-
 
             currentTask.title = titleInput.value;
             currentTask.description = descriptionInput.value;
@@ -64,6 +69,19 @@ export const updateCurrentTask = (tasks) => {
     })
 }
 
-dltBtn.addEventListener("click", () =>{
-    console.log("clicked")
-})
+export const delCurrentTask = (tasks) => {
+    dltBtn.addEventListener("click", () =>{
+        const confirmDel = confirm("Are you sure you want to delete?")
+        if(confirmDel === true) {
+
+        tasks = tasks.filter((task) => task.id !== currentTask.id ) 
+        storeTasks(tasks)
+        renderTasks(tasks)
+
+        currentTask = null;
+        modalOpen.classList.remove("display-modal");
+        } else {
+            console.log("delete cancelled")
+        }
+    })
+}
