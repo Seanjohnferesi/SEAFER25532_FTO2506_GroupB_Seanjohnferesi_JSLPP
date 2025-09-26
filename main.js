@@ -103,15 +103,22 @@ window.addEventListener("DOMContentLoaded", () => {
   const savedState = localStorage.getItem("sidebarState");
 
   if (savedState === "closed") {
+
     navBar.classList.add("hide");
+
     if (window.innerWidth > 1023) document.body.style.marginLeft = "0";
     openSidebar.style.display = "inline";
     mobileBackdrop.style.display = "none";
   } else {
     navBar.classList.remove("hide");
-    if (window.innerWidth > 1023) document.body.style.marginLeft = "302px";
+
+    if (window.innerWidth > 1023) {
+      document.body.style.marginLeft = "302px";
+      mobileBackdrop.style.display = "none"; 
+    } else {
+      mobileBackdrop.style.display = "inline";
+    }
     openSidebar.style.display = "none";
-    mobileBackdrop.style.display = "inline";
   }
 });
 

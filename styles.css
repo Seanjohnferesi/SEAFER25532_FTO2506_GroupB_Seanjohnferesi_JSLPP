@@ -724,6 +724,10 @@ body.dark{
         display: inline;
     }
 
+    .open-sidebar{
+        display: none !important;
+    }
+
     .toggle-sidebar{
         display: none;
     }
@@ -856,12 +860,17 @@ body.dark{
         cursor: pointer;
         width: 33px;
         height: 33px;
+        position: relative;
     }
 
     .add-task-btn::before{
         content: "+";
         font-size: 16px;
         font-weight: 800;
+        position: absolute;
+        top: 7px;
+        left: 11px;
+
     }
 
     main{
