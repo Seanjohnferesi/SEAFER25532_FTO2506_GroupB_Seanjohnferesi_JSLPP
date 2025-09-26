@@ -96,7 +96,13 @@ closeSidebar.addEventListener("click", () => {
 
 // Load saved state
 window.addEventListener("DOMContentLoaded", () => {
-  const savedState = localStorage.getItem("sidebarState");
+  let savedState = localStorage.getItem("sidebarState");
+
+      if (!savedState) {
+      savedState = "closed";
+      localStorage.setItem("sidebarState", "closed");
+    }
+  
 
   if (savedState === "closed") {
 
