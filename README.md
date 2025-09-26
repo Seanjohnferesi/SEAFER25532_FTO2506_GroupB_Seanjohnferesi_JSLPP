@@ -82,4 +82,4 @@ Includes task creation, editing, deletion, local storage persistence, API integr
 ## Presntation Video
 ---
 
-🎥 [Click here to view my walkthrough video](hhttps://www.veed.io/view/9574aca5-ab1b-4805-b4a8-1f37d24a909d?source=editor&panel=share)
+🎥 [Click here to view my walkthrough video](https://www.veed.io/view/9574aca5-ab1b-4805-b4a8-1f37d24a909d?source=editor&panel=share)
