@@ -16,6 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="mobileBackdrop" class="backdrop"></div>
+    
      <nav id="nav">
         <div class="logo-wrapper">
             <!-- FOR LIGHT MODE -->
@@ -29,6 +31,9 @@
         <div class="boards-container">
             <h4>ALL BOARDS (1)</h4>
             <button>Launch Career</button>
+        </div>
+        <div class="sidebar-close-btn">
+            <img src="images/close-button.svg">
         </div>
         <button class="toggle-theme-btn" id="toggle-theme-btn">
             <img src="images/Sun.png"> <div class="theme-switch"><span class="switch-btn"></span></div> <img src="images/moon.png">
@@ -49,7 +54,7 @@
     </header>
 
     <div class="main-container">
-        
+
         <div id="blur-bg">
             <div id="loading"></div>
         </div>
@@ -58,7 +63,7 @@
             <section class="todo-list-container">
                 <div class="todo-list">
                     <span class="todo-dot dot"></span>
-                    <h4>TODO (4)</h4>
+                    <h4>TODO (<span>0</span>)</h4>
                 </div>
                 
                 <div class="todo-flex-container" id="todo-col">
@@ -69,7 +74,7 @@
             <section class="doing-list-container">
                 <div class="doing-list">
                     <span class="doing-dot dot"></span>
-                    <h4>DOING (2)</h4>
+                    <h4>DOING (<span>0</span>)</h4>
                 </div>
 
                 <div class="doing-flex-container" id="doing-col">
@@ -80,7 +85,7 @@
             <section class="done-list-container">
                 <div class="done-list">
                     <span class="done-dot dot"></span>
-                    <h4>DONE (2)</h4>
+                    <h4>DONE (<span>0</span>)</h4>
                 </div>
 
                 <div class="done-flex-container" id="done-col">

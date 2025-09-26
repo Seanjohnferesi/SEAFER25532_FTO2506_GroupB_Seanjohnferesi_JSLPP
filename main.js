@@ -5,7 +5,12 @@ import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrent
 import { 
     modalOpen, modalClose, addTaskBtn, addTaskModal, closeTaskModal,
     createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn,
-    toggleSidebar, navBar, openSidebar
+    toggleSidebar, navBar, openSidebar,
+    darkModeIcon,
+    mobileDarkLogo,
+    mobileLightLogo,
+    closeSidebar,
+    mobileBackdrop
 } from "./dom.js";
 
 const initApp = async () => {
@@ -46,17 +51,70 @@ const initApp = async () => {
   // Dark mode
   toggleThemeBtn.addEventListener("click", () => toggleDarkMode());
 
-  // Sidebar
-  toggleSidebar.addEventListener("click", () => {
+  // Desktop sidebar
+toggleSidebar.addEventListener("click", () => {
+  if (window.innerWidth > 1023) { // desktop only
     navBar.classList.add("hide");
-    document.body.style.paddingLeft = "0";
-    openSidebar.style.display = "inline"
-  });
-  openSidebar.addEventListener("click", () => {
+    document.body.style.marginLeft = "0";
+    openSidebar.style.display = "inline";
+    localStorage.setItem("sidebarState", "closed");
+  }
+});
+
+openSidebar.addEventListener("click", () => {
+  if (window.innerWidth > 1023) {
     navBar.classList.remove("hide");
-    document.body.style.paddingLeft = "302px";
-    openSidebar.style.display = "none"
-  });
+    document.body.style.marginLeft = "302px";
+    openSidebar.style.display = "none";
+    localStorage.setItem("sidebarState", "open");
+  }
+});
+
+// Mobile sidebar
+mobileDarkLogo.addEventListener("click", () => {
+  if (window.innerWidth <= 1023) { // mobile only
+    navBar.classList.remove("hide");
+    openSidebar.style.display = "none";
+    mobileBackdrop.style.display = "inline";
+    localStorage.setItem("sidebarState", "open");
+  }
+});
+
+mobileLightLogo.addEventListener("click", () => {
+  if (window.innerWidth <= 1023) { // mobile only
+    navBar.classList.remove("hide");
+    openSidebar.style.display = "none";
+    mobileBackdrop.style.display = "inline";
+    localStorage.setItem("sidebarState", "open");
+  }
+});
+
+closeSidebar.addEventListener("click", () => {
+  if (window.innerWidth <= 1023) { // mobile only
+    navBar.classList.add("hide");
+    openSidebar.style.display = "inline";
+    mobileBackdrop.style.display = "none";
+    localStorage.setItem("sidebarState", "closed");
+  }
+});
+
+// Load saved state
+window.addEventListener("DOMContentLoaded", () => {
+  const savedState = localStorage.getItem("sidebarState");
+
+  if (savedState === "closed") {
+    navBar.classList.add("hide");
+    if (window.innerWidth > 1023) document.body.style.marginLeft = "0";
+    openSidebar.style.display = "inline";
+    mobileBackdrop.style.display = "none";
+  } else {
+    navBar.classList.remove("hide");
+    if (window.innerWidth > 1023) document.body.style.marginLeft = "302px";
+    openSidebar.style.display = "none";
+    mobileBackdrop.style.display = "inline";
+  }
+});
+
 };
 
 initApp();
