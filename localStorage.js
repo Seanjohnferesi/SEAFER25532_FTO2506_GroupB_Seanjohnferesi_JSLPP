@@ -1,5 +1,5 @@
 import { darkMode, darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon, mobileDarkLogo, mobileLightLogo} from "./dom.js";
-import { renderTasks } from "./taskRender.js";
+import { renderTasks } from "./render.js";
 import { updateDarkModeUI } from "./UI/darkMode.js";
 
 //Loads tasks from the localStorage

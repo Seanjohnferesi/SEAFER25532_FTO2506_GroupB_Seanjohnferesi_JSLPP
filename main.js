@@ -1,24 +1,16 @@
 import { initialTasks, tasks } from "./initialData.js";
 import { storeTasks, toggleDarkMode } from "./localStorage.js";
-import { renderTasks, createTaskElement, appendTask } from "./taskRender.js";
+import { renderTasks, createTaskElement, appendTask, showLoadingScreen, hideLoadingScreen } from "./render.js";
 import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrentTask, delCurrentTask } from "./modalManager.js";
 import { 
     modalOpen, modalClose, addTaskBtn, addTaskModal, closeTaskModal,
     createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn,
-    toggleSidebar, navBar, openSidebar,
-    loadingDisc,
-    loadingBg
+    toggleSidebar, navBar, openSidebar
 } from "./dom.js";
-import { updateDarkModeUI } from "./UI/darkMode.js";
 
 const initApp = async () => {
-  loadingBg.style.display = "block"; //shows the loading screen when fetching api
-  loadingDisc.style.display = "block";
 
   await initialTasks(); // wait for API fetch to finish
-
-  loadingBg.style.display = "none"; //hides loading screen after fetching api
-  loadingDisc.style.display = "none";
 
   renderTasks(tasks); // now tasks array is populated
 

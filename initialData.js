@@ -1,5 +1,5 @@
 import { storeTasks } from "./localStorage.js";
-import { renderTasks } from "./taskRender.js";
+import { hideLoadingScreen, renderTasks, showLoadingScreen } from "./render.js";
 
 
 export let tasks = [];
@@ -13,10 +13,14 @@ export let tasks = [];
 
 export const initialTasks = async () => {
 
+    showLoadingScreen()
+
     const checkTasks = JSON.parse(localStorage.getItem("tasks"));
     if(Array.isArray(checkTasks) && checkTasks.length > 0){
       tasks = checkTasks;
       renderTasks(tasks)
+
+      hideLoadingScreen();
       return;
     }
 
@@ -37,6 +41,8 @@ export const initialTasks = async () => {
         alert("Failed to fetch tasks: " + error);
         storeTasks(fallbackTask);
         renderTasks(tasks);
+    } finally{
+      hideLoadingScreen()
     }
 }
 

@@ -1,7 +1,7 @@
 import { modalOpen, titleInput, descriptionInput, statusInput, saveBtn, dltBtn } from "./dom.js";
 import { initialTasks } from "./initialData.js";
 import { storeTasks, loadTasks} from "./localStorage.js";
-import { renderTasks } from "./taskRender.js";
+import { renderTasks } from "./render.js";
 
 /**
  * Attaches a click listener to a button that opens the modal

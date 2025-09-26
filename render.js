@@ -1,4 +1,4 @@
-import { todoColumn, doingColumn, doneColumn } from "./dom.js";
+import { todoColumn, doingColumn, doneColumn, loadingBg, loadingDisc } from "./dom.js";
 import { loadTasks } from "./localStorage.js";
 import { modalTaskListener } from "./modalManager.js";
 /**Creating the task elements**/
@@ -28,4 +28,13 @@ export function renderTasks(tasks) {
       appendTask(divTask, task.status)
       modalTaskListener(divTask, task)
     }
+}
+
+export const showLoadingScreen = () => {
+  loadingBg.style.display = "block";
+  loadingDisc.style.display = "block";
+}
+export const hideLoadingScreen = () => {
+  loadingBg.style.display = "none";
+  loadingDisc.style.display = "none";
 }
