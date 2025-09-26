@@ -1,42 +1,43 @@
-export let initialTasks = [
-  {
-    id: 1,
-    title: "Launch Epic Career 🚀",
-    description: "Create a killer Resume",
-    status: "todo",
-  },
-  {
-    id: 2,
-    title: "Master JavaScript 💛",
-    description: "Get comfortable with the fundamentals",
-    status: "doing",
-  },
-  {
-    id: 3,
-    title: "Keep on Going 🏆",
-    description: "You're almost there",
-    status: "doing",
-  },
+import { storeTasks } from "./localStorage.js";
+import { renderTasks } from "./taskRender.js";
 
-  {
-    id: 4,
-    title: "Learn Data Structures and Algorithms 📚",
-    description:
-      "Study fundamental data structures and algorithms to solve coding problems efficiently",
-    status: "todo",
-  },
-  {
-    id: 5,
-    title: "Contribute to Open Source Projects 🌐",
-    description:
-      "Gain practical experience and collaborate with others in the software development community",
-    status: "done",
-  },
-  {
-    id: 6,
-    title: "Build Portfolio Projects 🛠️",
-    description:
-      "Create a portfolio showcasing your skills and projects to potential employers",
-    status: "done",
-  },
-];
+
+export let tasks = [];
+
+  const fallbackTask = [
+    { id: 1,
+      title: "Sample Task",
+      description: "This is a placeholder task", 
+      status: "todo" }
+  ];
+
+export const initialTasks = async () => {
+
+    const checkTasks = JSON.parse(localStorage.getItem("tasks"));
+    if(Array.isArray(checkTasks) && checkTasks.length > 0){
+      tasks = checkTasks;
+      renderTasks(tasks)
+      return;
+    }
+
+    try {
+        const response = await fetch("https://jsl-kanban-api.vercel.app/");
+        const dataFetched = await response.json();
+
+        if (Array.isArray(dataFetched)) {
+            tasks = dataFetched;
+        } else{
+          tasks = fallbackTask
+        }
+
+        storeTasks(tasks);
+        renderTasks(tasks);
+
+    } catch (error) {
+        alert("Failed to fetch tasks: " + error);
+        storeTasks(fallbackTask);
+        renderTasks(tasks);
+    }
+}
+
+

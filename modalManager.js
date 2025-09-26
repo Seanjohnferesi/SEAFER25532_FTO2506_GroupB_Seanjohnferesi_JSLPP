@@ -1,6 +1,6 @@
 import { modalOpen, titleInput, descriptionInput, statusInput, saveBtn, dltBtn } from "./dom.js";
 import { initialTasks } from "./initialData.js";
-import { storeTasks } from "./localStorage.js";
+import { storeTasks, loadTasks} from "./localStorage.js";
 import { renderTasks } from "./taskRender.js";
 
 /**
@@ -51,16 +51,18 @@ export function modalTaskListener(divTask, task){
  * Updates the currently selected tasks with values from the modal inputs,
  * saves the updated info to localStorage and re-renders the tasks and closes the modal.
  * 
- * @param {Array<Object>} tasks - the array of all tasks currenlt stored in localStorage
+ * @param {Array<Object>} tasks - the array of all tasks currently stored in localStorage
  */
 export const updateCurrentTask = (tasks) => {
     saveBtn.addEventListener("click", () =>{
-
-            currentTask.title = titleInput.value;
-            currentTask.description = descriptionInput.value;
-            currentTask.status = statusInput.value;
-
-            localStorage.setItem("initialTasks", JSON.stringify(tasks));
+       
+        const taskToUpdate = tasks.find(task => task.id === currentTask.id);
+        
+        if (taskToUpdate) {
+            taskToUpdate.title = titleInput.value;
+            taskToUpdate.description = descriptionInput.value;
+            taskToUpdate.status = statusInput.value;
+        }
 
             storeTasks(tasks);
             renderTasks(tasks);
@@ -69,12 +71,19 @@ export const updateCurrentTask = (tasks) => {
     })
 }
 
+/**
+ * 
+ * Deletes selected task from array in local storage and on the board 
+ */
 export const delCurrentTask = (tasks) => {
     dltBtn.addEventListener("click", () =>{
-        const confirmDel = confirm("Are you sure you want to delete?")
-        if(confirmDel === true) {
+        const confirmDel = confirm("Are you sure you want to delete?");
+       if (confirmDel) {
+            const index = tasks.findIndex(task => task.id === currentTask.id);
+            if (index > -1) {
+                tasks.splice(index, 1); // remove the task
+            }
 
-        tasks = tasks.filter((task) => task.id !== currentTask.id ) 
         storeTasks(tasks)
         renderTasks(tasks)
 

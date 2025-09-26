@@ -1,13 +1,15 @@
 import { darkMode, darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon, mobileDarkLogo, mobileLightLogo} from "./dom.js";
+import { renderTasks } from "./taskRender.js";
 import { updateDarkModeUI } from "./UI/darkMode.js";
 
 //Loads tasks from the localStorage
 export function loadTasks(){
-    return JSON.parse(localStorage.getItem("initialTasks")) || [] ;
+    
 }
 
-export function storeTasks(initialTasks) {
-    localStorage.setItem("initialTasks", JSON.stringify(initialTasks));
+
+export function storeTasks(tasks) {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
 export const toggleDarkMode = () => {

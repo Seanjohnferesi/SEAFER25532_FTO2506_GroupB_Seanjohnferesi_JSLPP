@@ -1,4 +1,5 @@
 import { todoColumn, doingColumn, doneColumn } from "./dom.js";
+import { loadTasks } from "./localStorage.js";
 import { modalTaskListener } from "./modalManager.js";
 /**Creating the task elements**/
 export function createTaskElement(task){
@@ -28,4 +29,3 @@ export function renderTasks(tasks) {
       modalTaskListener(divTask, task)
     }
 }
-  

@@ -1,78 +1,60 @@
-
-import {initialTasks } from "./initialData.js";
-import { loadTasks, storeTasks, toggleDarkMode} from "./localStorage.js";
+import { initialTasks, tasks } from "./initialData.js";
+import { storeTasks, toggleDarkMode } from "./localStorage.js";
 import { renderTasks, createTaskElement, appendTask } from "./taskRender.js";
-import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrentTask, delCurrentTask} from "./modalManager.js";
+import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrentTask, delCurrentTask } from "./modalManager.js";
 import { 
     modalOpen, modalClose, addTaskBtn, addTaskModal, closeTaskModal,
     createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn,
-    toggleSidebar, navBar, openSidebar, saveBtn, dltBtn, titleInput, descriptionInput, statusInput
+    toggleSidebar, navBar, openSidebar
 } from "./dom.js";
- import {  updateDarkModeUI } from "./UI/darkMode.js";
+import { updateDarkModeUI } from "./UI/darkMode.js";
 
-let tasks = loadTasks();
+const initApp = async () => {
+  await initialTasks(); // wait for API fetch to finish
 
-if (!tasks.length){
-  tasks = initialTasks;
-  storeTasks(tasks);
+  renderTasks(tasks); // now tasks array is populated
+
+  // Add new task
+  createTask.addEventListener("click", () => {
+    const id = tasks.length + 1;
+    const newTask = {
+      id,
+      title: titleInput2.value,
+      description: descriptionInput2.value,
+      status: statusInput2.value
+    };
+    tasks.push(newTask);
+    storeTasks(tasks);
+
+    const displayTask = createTaskElement(newTask);
+    appendTask(displayTask, newTask.status);
+    modalTaskListener(displayTask, newTask);
+
+    titleInput2.value = "";
+    descriptionInput2.value = "";
+  });
+
+  // Update/delete tasks
+  updateCurrentTask(tasks);
+  delCurrentTask(tasks);
+
+  // Modals
+  modalListenerClose(modalClose, modalOpen);
+  modalListenerOpen(addTaskBtn, addTaskModal);
+  modalListenerClose(closeTaskModal, addTaskModal);
+
+  // Dark mode
+  toggleThemeBtn.addEventListener("click", () => toggleDarkMode());
+
+  // Sidebar
+  toggleSidebar.addEventListener("click", () => {
+    navBar.classList.add("hide");
+    document.body.style.paddingLeft = "0";
+  });
+  openSidebar.addEventListener("click", () => {
+    navBar.classList.remove("hide");
+    document.body.style.paddingLeft = "302px";
+  });
 };
 
-renderTasks(tasks);
-
-function clearTextField() {
-  titleInput2.value = "";
-  descriptionInput2.value = "";
-}
-
-createTask.addEventListener("click", () => {
-  let id = tasks.length + 1;
-  const newTask = {
-    id: id,
-    title: titleInput2.value,
-    description: descriptionInput2.value,
-    status: statusInput2.value
-  }
-  tasks.push(newTask)
-  storeTasks(tasks);
-
-  const displayTask = createTaskElement(newTask)
-  appendTask(displayTask, newTask.status)
-  modalTaskListener(displayTask, newTask);
-
-  clearTextField();
-})
-
-updateCurrentTask(tasks);
-
-delCurrentTask(tasks);
-
-//click listener so the Task modal closes.
-modalListenerClose(modalClose, modalOpen)
-
-//click listener so the ADD TASK modal open.
-modalListenerOpen(addTaskBtn, addTaskModal)
-
-//click listener so the ADD TASK modal closes.
-modalListenerClose(closeTaskModal, addTaskModal)
-
-toggleThemeBtn.addEventListener("click", () => {
-  toggleDarkMode()
-})
-
-const closeSideBar = () =>{
-  navBar.classList.add("hide");
-    document.body.style.paddingLeft = "0"
-}
-
-const openSideBar = () =>{
-  navBar.classList.remove("hide");
-  document.body.style.paddingLeft = "302px"
-}
-
-toggleSidebar.addEventListener("click", () =>{
-  closeSideBar()
-})
-
-openSidebar.addEventListener("click", () =>{
-  openSideBar();
-})
+initApp();
