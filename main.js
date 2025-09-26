@@ -5,12 +5,20 @@ import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrent
 import { 
     modalOpen, modalClose, addTaskBtn, addTaskModal, closeTaskModal,
     createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn,
-    toggleSidebar, navBar, openSidebar
+    toggleSidebar, navBar, openSidebar,
+    loadingDisc,
+    loadingBg
 } from "./dom.js";
 import { updateDarkModeUI } from "./UI/darkMode.js";
 
 const initApp = async () => {
+  loadingBg.style.display = "block"; //shows the loading screen when fetching api
+  loadingDisc.style.display = "block";
+
   await initialTasks(); // wait for API fetch to finish
+
+  loadingBg.style.display = "none"; //hides loading screen after fetching api
+  loadingDisc.style.display = "none";
 
   renderTasks(tasks); // now tasks array is populated
 
@@ -50,10 +58,12 @@ const initApp = async () => {
   toggleSidebar.addEventListener("click", () => {
     navBar.classList.add("hide");
     document.body.style.paddingLeft = "0";
+    openSidebar.style.display = "inline"
   });
   openSidebar.addEventListener("click", () => {
     navBar.classList.remove("hide");
     document.body.style.paddingLeft = "302px";
+    openSidebar.style.display = "none"
   });
 };
 

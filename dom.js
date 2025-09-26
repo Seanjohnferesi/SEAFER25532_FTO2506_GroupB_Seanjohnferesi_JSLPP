@@ -41,3 +41,7 @@ export const openSidebar = document.querySelector(".open-sidebar");
 /**SAVE AND DELETE BUTTONS**/
 export const saveBtn = document.getElementById("save-btn")
 export const dltBtn = document.getElementById("delete-btn")
+
+/**LOADING SCREEN**/
+export const loadingDisc = document.getElementById("loading");
+export const loadingBg = document.getElementById("blur-bg");
