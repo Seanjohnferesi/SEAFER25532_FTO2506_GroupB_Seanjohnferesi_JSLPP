@@ -1,11 +1,5 @@
-import { darkMode, darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon, mobileDarkLogo, mobileLightLogo} from "./dom.js";
-import { renderTasks } from "./render.js";
-import { updateDarkModeUI } from "./UI/darkMode.js";
-
-//Loads tasks from the localStorage
-export function loadTasks(){
-    
-}
+import { darkMode, darkModeAppName, darkModeIcon, lightModeAppName, lightModeIcon, mobileDarkLogo, mobileLightLogo} from "../data/dom.js";
+import { updateDarkModeUI } from "../UI/darkMode.js";
 
 
 export function storeTasks(tasks) {

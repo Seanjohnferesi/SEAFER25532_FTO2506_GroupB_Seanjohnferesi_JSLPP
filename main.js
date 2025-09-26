@@ -1,17 +1,13 @@
-import { initialTasks, tasks } from "./initialData.js";
-import { storeTasks, toggleDarkMode } from "./localStorage.js";
-import { renderTasks, createTaskElement, appendTask, showLoadingScreen, hideLoadingScreen } from "./render.js";
-import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrentTask, delCurrentTask } from "./modalManager.js";
+import { initialTasks, tasks } from "./data/initialData.js";
+import { storeTasks, toggleDarkMode } from "./scripts/localStorage.js";
+import { renderTasks, createTaskElement, appendTask } from "./scripts/render.js";
+import { modalListenerOpen, modalListenerClose, modalTaskListener, updateCurrentTask, delCurrentTask } from "./UI/modalManager.js";
 import { 
     modalOpen, modalClose, addTaskBtn, addTaskModal, closeTaskModal,
     createTask, titleInput2, descriptionInput2, statusInput2, toggleThemeBtn,
-    toggleSidebar, navBar, openSidebar,
-    darkModeIcon,
-    mobileDarkLogo,
-    mobileLightLogo,
-    closeSidebar,
-    mobileBackdrop
-} from "./dom.js";
+    toggleSidebar, navBar, openSidebar,mobileDarkLogo,mobileLightLogo,
+    closeSidebar,mobileBackdrop
+} from "./data/dom.js";
 
 const initApp = async () => {
 

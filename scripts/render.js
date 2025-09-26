@@ -1,6 +1,6 @@
-import { todoColumn, doingColumn, doneColumn, loadingBg, loadingDisc } from "./dom.js";
-import { loadTasks } from "./localStorage.js";
-import { modalTaskListener } from "./modalManager.js";
+import { todoColumn, doingColumn, doneColumn, loadingBg, loadingDisc } from "../data/dom.js";
+import { modalTaskListener } from "../UI/modalManager.js";
+
 /**Creating the task elements**/
 export function createTaskElement(task){
     let displayTask = document.createElement("div"); //creates a new div element in memory

@@ -1,5 +1,5 @@
-import { storeTasks } from "./localStorage.js";
-import { hideLoadingScreen, renderTasks, showLoadingScreen } from "./render.js";
+import { storeTasks } from "../scripts/localStorage.js";
+import { hideLoadingScreen, renderTasks, showLoadingScreen } from "../scripts/render.js";
 
 
 export let tasks = [];
