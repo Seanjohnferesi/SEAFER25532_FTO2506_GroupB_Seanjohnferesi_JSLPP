@@ -1,149 +1,85 @@
-# Responsive Kanban Board
+# Kanban App
 
-A visually accurate and fully responsive **Kanban board** built to replicate the provided Figma design.  
-The application features multiple task columns, styled task cards, and a static side panel for a professional and cohesive user experience.
+A fully-featured, responsive, and dynamic **Kanban board** application that allows users to manage tasks efficiently.  
+Includes task creation, editing, deletion, local storage persistence, API integration, and light/dark theme support.
 
 ---
 
 ## 🚀 Features
 
-- **Custom Branding**
-  - Favicon and page title match the application’s theme.
-- **Kanban Board Layout**
-  - Multiple columns (e.g., *To Do*, *In Progress*, *Done*) following the exact Figma layout.
-- **Pixel-Perfect Styling**
-  - Colours, typography, spacing, and shadows match Figma specifications.
-- **Fully Responsive**
-  - Adapts seamlessly between desktop and mobile views as per Figma’s responsive design.
-- **Task Cards**
-  - Styled cards with clear titles, borders, padding, and shadows for easy readability.  
-  - **Hover effects and transitions** for smooth and engaging interactivity.
-- **Static Side Panel**
-  - Contains correct icons, text, and branding elements, structured for a polished look.
+### Task Management
+- Create, edit, and delete tasks with confirmation prompts.
+- Edit task **title**, **description**, and **status** directly from a modal.
+- Move tasks between columns (`To Do`, `Doing`, `Done`) by changing status.
+- Task updates immediately reflect on the board and persist in **local storage**.
+
+### API Integration
+- Fetch initial tasks from an external API for dynamic data.
+- Display a **loading message** while fetching tasks.
+- Show an **error message** if fetching fails.
+- Save fetched tasks to local storage.
+
+### Sidebar & Mobile Menu
+- Sidebar includes all required elements based on design specifications.
+- Toggle sidebar visibility on desktop and mobile.
+- Access sidebar via app logo on mobile view.
+- Mobile menu mirrors desktop sidebar functionality.
+- Close mobile menu when not needed.
+
+### Theme Toggle
+- Switch between **light mode** and **dark mode**.
+- Works on both desktop sidebar and mobile menu.
+- Ensures correct contrast and styling across all screen sizes.
+
+### Task Deletion
+- Delete button in modal with confirmation prompt.
+- Task immediately removed from board and local storage upon confirmation.
+- Cancelling deletion leaves tasks unchanged.
+
+### Deployment
+- Project ready for deployment on **Netlify**.
+- Custom deployment link for a professional URL.
+- All files correctly structured for deployment.
 
 ---
 
 ## 📱 Responsiveness
-
-- **Desktop/Laptop** → Full Kanban board with side panel.
-- **Mobile** → Compact design that maintains usability and readability.
-
----
-
-## 2. JavaScript Task Entry System
-
-A JavaScript-based system that allows users to input three tasks with full details while ensuring data validation and consistency.
-
-### Features
-- Prompt users to enter **title**, **description**, and **status** for two tasks
-- Automatically converts status input to **lowercase**
-- Validates status to accept only `todo`, `doing`, or `done`, prompting repeatedly until valid
-- Displays **completed tasks** (status: `done`) in the console
-- Shows a motivational message if no tasks are completed:  
-  `"No tasks completed, let's get to work!"`  
-- Assigns **unique incremental IDs** to each task
-- Alerts users when the **last allowed task** is added
+- Desktop: Full Kanban board with sidebar.
+- Mobile: Compact layout with accessible sidebar and mobile menu.
+- All modals and board elements fully responsive.
 
 ---
 
-## 3. Dynamic Task Board
+## How to Use
 
-A modular JavaScript-powered Kanban board where tasks are dynamically created from initial data, automatically placed in the correct columns, and can be viewed or edited via a responsive modal.
-
-### Features
-- Tasks are rendered from initial data using JavaScript, placed into the correct columns based on their status. 
-- Clicking a task opens a modal with editable **title**, **description**, and **status** 
-- Modal is fully responsive for mobile devices.
-- Modular JavaScript functions improve maintainability. 
-
-### How it works
-- Tasks are dynamically created from an initial array using JavaScript functions.
-- Each task is appended to the correct column (`todo`, `doing`, `done`) using a modular function. 
-- Clicking a task opens a modal that displays the task’s title, description, and status.
-- The modal allows users to edit task details and is fully responsive for mobile devices. 
-
-### How to Use
-1. Open `index.html` in your browser  
-2. View tasks in their respective columns  
-3. Click on any task to open the modal  
-4. Edit the title, description, or status in the modal  
-5. Close the modal by clicking the “X” button 
+1. **Add a Task**: Click **Add Task**, fill in title, description, and status, then save.  
+2. **Edit a Task**: Click a task, update title, description, or status, then save.  
+3. **Delete a Task**: Click **Delete** in the modal and confirm.  
+4. **Sidebar**: Toggle visibility on desktop; open via app logo on mobile.  
+5. **Theme**: Switch between light and dark modes using the toggle.  
+6. **Persistence**: Tasks and theme preferences are saved automatically.  
+7. **API Tasks**: Tasks load from the API on first visit with a loading message.
 
 ---
-
-## 4. Task Board With Local Storage Persistence And Task Creation  
-
-"Task board with local storage; add and categorize tasks in To Do, Doing, Done columns via a modal."
-
-### Features 
-- **Persistent Tasks:** Tasks are saved in local storage, so they remain after refreshing or reopening the page.
-- **Add Task Modal:** Click the **Add Task** button to open a modal where you can input task details.
-- **Task Form:** Enter task title, description, and select status from a dropdown.
-- **Immediate Rendering:** New tasks appear on the board immediately after submission.
-- **Responsive Design:** Modal and task board adapt seamlessly to both desktop and mobile screens.
-- **Modular Code:** JavaScript is split into modules, each handling a single responsibility (local storage, task rendering, modal management).
-
-
-### How to use
-- Click Add Task to open the modal.
-- Fill in the task title, description, and select a status.
-- Submit to add the task to the board.
-- Tasks remain saved and organized even after refreshing the page.
-
-
 
 ## 🛠️ Tech Stack
-
 - **HTML**  
-- **CSS** 
+- **CSS**  
 - **JavaScript**  
-- **LocalStorage API**
----
-
-## 📸 Kanban Board Preview
-
-### Desktop View
-![Desktop Preview](./assets/desktop.png)
-
-### Mobile View
-![Mobile Preview](./assets/mobile.png)
+- **LocalStorage API**  
+- **Fetch API**  
+- **Netlify** for deployment
 
 ---
 
-## 📷 Javascript task entry system preview  
-
-### User Input View  
-![User Input](./assets/user-input.png)
-
-### Invalid Status  
-![Invalid Status](./assets/invalid-input-error.png)
-
-### Console Log Output  
-![Console Log Output](./assets/output.png)
-
-### Task Limit Alert
-![Task Limit Alert](./assets/limit-message.png)  
-
-### console array output
-![Console Array Output](./assets/Screenshot%202025-09-07%20165407.png)
+## Installation & Deployment
+1. Clone the repository:  
+   ```bash
+   git clone <repository-url>
 
 ---
 
-## 📸 Dynamic Task Board Modal Overview  
+## Presntation Video
+---
 
-### Desktop View
-![Desktop Preview](./assets/desktop-modal.png)
-
-### Mobile View
-![Mobile Preview](./assets/mobile-modal.png)
-
-## 📸 Task Board With Local Storage Persistence And Task Creation Overview
-
-### Desktop Task Input Modal  
-![Desktop Task Input Modal](./assets/desktop-task-input.png) 
-
-### Mobile Task Input Modal  
-![Mobile Task Input Modal](./assets/mobile.task-input.png);
-
-### Displayed Task View  
-![Displyed Task View](./assets/mobile.task-input.png);
+🎥 [Click here to view my walkthrough video](hhttps://www.veed.io/view/9574aca5-ab1b-4805-b4a8-1f37d24a909d?source=editor&panel=share)
